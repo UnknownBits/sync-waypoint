@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "waypoints",
+  "version": "${version}",
+  "name": "Waypoints",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/UnknownBits/Waypoints"
+  },
+  "license": "MIT",
+  "icon": "assets/waypoints/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.unknownbits.waypoints.client.WaypointsClient"
+    ],
+    "main": [
+      "net.unknownbits.waypoints.Waypoints"
+    ]
+  },
+  "mixins": [
+    "waypoints.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
