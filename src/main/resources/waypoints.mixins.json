@@ -7,7 +7,7 @@
     "TitleScreenMixin"
   ],
   "client": [
-
+    "ScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

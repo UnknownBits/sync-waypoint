@@ -1,6 +1,8 @@
 package net.unknownbits.waypoints.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
+import net.minecraft.network.message.MessageType;
+import net.minecraft.network.message.SignedMessage;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
@@ -10,12 +12,12 @@ public class WaypointsCommmand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(CommandManager.literal("waypoints")
                 .executes(context -> {
-                    context.getSource().sendMessage(Text.translatable("waypoints.info", Waypoints.VERSTION));
+                    context.getSource().sendMessage(Text.translatable("waypoints.info",Waypoints.VERSION));
                     return 0;
         }).then(CommandManager.literal("reload")
                 .requires(source -> source.hasPermissionLevel(2))
                 .executes(context -> {
-                    context.getSource().sendMessage(Text.literal("/"));
+                    context.getSource().sendMessage(Text.Serializer.fromJson("{\"text\":\"Click this!\",\"clickEvent\": {\"action\":\"run_command\",\"value\":\"/say Hello!\"}}"));
                     return 0;
         })).then(CommandManager.literal("list").executes(context -> {
                     return 0;
