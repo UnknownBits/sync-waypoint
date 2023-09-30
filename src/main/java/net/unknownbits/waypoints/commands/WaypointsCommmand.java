@@ -6,6 +6,7 @@ import net.minecraft.network.message.SignedMessage;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
+import net.unknownbits.waypoints.Waypoint;
 import net.unknownbits.waypoints.Waypoints;
 
 public class WaypointsCommmand {
@@ -19,7 +20,12 @@ public class WaypointsCommmand {
                 .executes(context -> {
                     context.getSource().sendMessage(Text.Serializer.fromJson("{\"text\":\"Click this!\",\"clickEvent\": {\"action\":\"run_command\",\"value\":\"/say Hello!\"}}"));
                     return 0;
-        })).then(CommandManager.literal("list").executes(context -> {
+        })).then(CommandManager.literal("list")
+                .executes(context -> {
+                    for (Waypoint waypoint: Waypoints.waypointList) {
+                        context.getSource().sendMessage(Text.translatable(waypoint.toShortString()));
+                        context.getSource().sendMessage(Text.translatable(waypoint.getGameProfile().getName()));
+                    }
                     return 0;
         })).then(CommandManager.literal("add").executes(context -> {
                     return 0;

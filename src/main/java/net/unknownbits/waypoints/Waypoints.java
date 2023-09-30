@@ -10,12 +10,15 @@ import net.unknownbits.waypoints.events.WEManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static net.minecraft.server.command.CommandManager.*;
 public class Waypoints implements ModInitializer {
     public static final String MOD_ID = "waypoints";
     public static final String GITHUB_REF = "UnknownBits/ModMenu";
     public static final Logger LOGGER = LoggerFactory.getLogger("Mod Menu");
-
+    public static List<Waypoint> waypointList = new ArrayList<>();
     public static final Version VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion();
     /**
      * Runs the mod initializer.
