@@ -30,9 +30,6 @@ public class WaypointsCommmand {
                     return 0;
                 })).then(CommandManager.literal("remove").executes(context -> {
                     return 0;
-                })).then(CommandManager.literal("config").executes(context -> {
-                    Config.TextClick = true;
-                    return 0;
                 }))
         );
     }

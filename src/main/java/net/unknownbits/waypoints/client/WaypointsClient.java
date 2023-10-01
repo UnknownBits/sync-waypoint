@@ -4,6 +4,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+import net.unknownbits.waypoints.client.commands.CCManager;
 
 import static net.unknownbits.waypoints.client.commands.CCManager.register;
 
@@ -14,7 +16,6 @@ public class WaypointsClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
-        if (ClientCommandManager.getActiveDispatcher() != null)
-            register(ClientCommandManager.getActiveDispatcher());
+        ClientCommandRegistrationCallback.EVENT.register(CCManager::register);
     }
 }
