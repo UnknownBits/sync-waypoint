@@ -32,8 +32,7 @@ public abstract class ScreenMixin {
                     remap = false,
                     ordinal = 1
             ),
-            require = 1,
-            remap = true
+            require = 1
     )
     private void justSendTheChat(Logger logger, String loggingMessage, Object clickEventContent) {
         // message.charAt(0) != '/'

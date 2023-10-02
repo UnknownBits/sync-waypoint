@@ -7,13 +7,12 @@ import net.minecraft.command.CommandRegistryAccess;
 
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
+
 public class CCManager {
+    public static LiteralArgumentBuilder<FabricClientCommandSource> root = literal("waypoints");
 
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
-        var root = literal("waypoints");
-
-        ConfigCommand.register(root);
-
+        ConfigCommand.register(dispatcher, root);
         dispatcher.register(root);
     }
 }

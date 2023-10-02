@@ -21,9 +21,6 @@ public class Waypoints implements ModInitializer {
     public static final Version VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion();
     public static List<Waypoint> waypointList = new ArrayList<>();
 
-    /**
-     * Runs the mod initializer.
-     */
     @Override
     public void onInitialize() {
         CommandRegistrationCallback.EVENT.register(CManager::register);

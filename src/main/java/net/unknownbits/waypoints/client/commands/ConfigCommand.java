@@ -1,5 +1,6 @@
 package net.unknownbits.waypoints.client.commands;
 
+import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
@@ -10,7 +11,8 @@ import net.unknownbits.waypoints.client.Config;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
 public class ConfigCommand {
-    public static void register(LiteralArgumentBuilder<FabricClientCommandSource> root) {
+    public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher,
+                                LiteralArgumentBuilder<FabricClientCommandSource> root) {
         var link_plus =
                 literal("link_plus")
                         .executes(c -> {
@@ -23,10 +25,7 @@ public class ConfigCommand {
                                     return 0;
                                 })
                         );
-        
-        root.then(
-                literal("config")
-                        .then(link_plus)
-        );
+
+        dispatcher.register(root.then(literal("config").then(link_plus)));
     }
 }

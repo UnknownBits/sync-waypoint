@@ -4,27 +4,37 @@
   "version": "${version}",
   "name": "Waypoints",
   "description": "",
-  "authors": [],
+  "authors": ["UnknownBits"],
   "contact": {
-    "repo": "https://github.com/UnknownBits/Waypoints"
+    "homepage": "",
+    "sources": "https://github.com/UnknownBits/Waypoints.git",
+    "issues": "https://github.com/UnknownBits/Waypoints/issues"
   },
+  "contributors": [
+    "HuaJiKing402",
+    "Fanzhitianyu"
+  ],
   "license": "MIT",
   "icon": "assets/waypoints/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "net.unknownbits.waypoints.client.WaypointsClient"
-    ],
-    "main": [
-      "net.unknownbits.waypoints.Waypoints"
-    ]
+    "main": [ "net.unknownbits.waypoints.Waypoints" ],
+    "client": [ "net.unknownbits.waypoints.client.WaypointsClient" ],
+    "modmenu": [ "net.unknownbits.waypoints.client.ModMenuApiImpl" ]
   },
   "mixins": [
     "waypoints.mixins.json"
   ],
+  "custom": {
+    "modmenu": {
+    }
+  },
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "recommends": {
+    "modmenu": ">=4.1.0"
   }
 }

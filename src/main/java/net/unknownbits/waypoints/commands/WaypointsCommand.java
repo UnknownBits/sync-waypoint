@@ -5,10 +5,9 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.unknownbits.waypoints.Waypoints;
-import net.unknownbits.waypoints.client.Config;
 import net.unknownbits.waypoints.entity.Waypoint;
 
-public class WaypointsCommmand {
+public class WaypointsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(CommandManager.literal("waypoints")
                 .executes(context -> {

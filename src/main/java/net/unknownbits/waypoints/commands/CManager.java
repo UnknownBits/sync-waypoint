@@ -7,6 +7,6 @@ import net.minecraft.server.command.ServerCommandSource;
 
 public class CManager {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess registryAccess, CommandManager.RegistrationEnvironment environment) {
-        WaypointsCommmand.register(dispatcher);
+        WaypointsCommand.register(dispatcher);
     }
 }
