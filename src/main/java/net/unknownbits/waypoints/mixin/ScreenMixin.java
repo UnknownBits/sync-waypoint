@@ -37,11 +37,8 @@ public abstract class ScreenMixin {
     private void justSendTheChat(Logger logger, String loggingMessage, Object clickEventContent) {
         // message.charAt(0) != '/'
         String message = (String) clickEventContent;
-        if (!Config.TextClick) {
-            return;
-        }
-        if (message.startsWith("xaero_waypoint_add:")) {
+        if (!Config.TextClick) return;
+        if (message.startsWith("xaero_waypoint_add:") || message.startsWith("#"))
             this.client.player.networkHandler.sendChatMessage(message);
-        }
     }
 }

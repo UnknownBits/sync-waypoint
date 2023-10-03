@@ -1,5 +1,4 @@
 {
-  "menu.waypoints": "旅行锚点",
-  "waypoints.info": "[ 旅行锚点 ] %d",
-  "waypoints.link_plus": "[ 链接增强 ] xaero小地图share链接增强解析"
+  "modmenu.nameTranslation.modmenu": "旅行锚点",
+  "settings.waypoints.link-plus": "[ 链接增强 ]"
 }

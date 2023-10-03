@@ -9,14 +9,7 @@ import java.util.function.Consumer;
 
 public class ModMenuApiImpl implements ModMenuApi {
     @Override
-    public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return ConfigScreen::new;
-    }
-
-    @Override
-    public Map<String, ConfigScreenFactory<?>> getProvidedConfigScreenFactories() {
-        return ModMenuApi.super.getProvidedConfigScreenFactories();
-    }
+    public ConfigScreenFactory<?> getModConfigScreenFactory() { return ConfigScreen::new; }
 
     @Override
     public void attachModpackBadges(Consumer<String> consumer) {
