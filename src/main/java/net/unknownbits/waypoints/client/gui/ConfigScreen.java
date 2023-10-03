@@ -14,11 +14,7 @@ import net.unknownbits.waypoints.client.Config;
 @Environment(EnvType.CLIENT)
 public class ConfigScreen extends Screen {
     public static final Text TITLE = Text.translatable("waypoints.config");
-    private Screen parent;
-
-    public ConfigScreen() {
-        super(TITLE);
-    }
+    private final Screen parent;
 
     public ConfigScreen(Screen screen) {
         super(TITLE);
@@ -26,7 +22,7 @@ public class ConfigScreen extends Screen {
     }
 
     public void close() {
-        this.client.setScreen(parent);
+        if (this.client != null) this.client.setScreen(parent);
     }
 
     protected void init() {
