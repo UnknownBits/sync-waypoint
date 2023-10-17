@@ -25,14 +25,10 @@
   "mixins": [
     "waypoints.mixins.json"
   ],
-  "custom": {
-    "modmenu": {
-    }
-  },
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "~${minecraft_version}"
   },
   "recommends": {
     "modmenu": ">=4.1.0"
