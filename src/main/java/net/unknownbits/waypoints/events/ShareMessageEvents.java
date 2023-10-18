@@ -7,7 +7,7 @@ import net.unknownbits.waypoints.entity.Waypoint;
 import net.unknownbits.waypoints.entity.WaypointFactory;
 
 public class ShareMessageEvents {
-    public static void register(SignedMessage message, ServerPlayerEntity sender, MessageType.Parameters params) {
+    public static void register(SignedMessage message, ServerPlayerEntity sender) {
         var content = message.getContent().getString();
 
         Waypoint wp = null;

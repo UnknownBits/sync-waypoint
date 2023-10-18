@@ -30,9 +30,8 @@ public class WaypointFactory {
         int y = Integer.parseInt(cache[2].split(",")[0]);
         int z = Integer.parseInt(cache[3].split(",")[0]);
         var pos = new Vec3i(x, y, z);
-        var wp = new Waypoint(creator, pos);
 
-        return wp;
+        return new Waypoint(creator, pos);
     }
 
     public static void add(Waypoint wp) {

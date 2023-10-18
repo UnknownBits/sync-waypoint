@@ -29,7 +29,7 @@ public class Waypoints implements ModInitializer {
     public static List<Waypoint> waypointList = new ArrayList<>();
 
     public static void EventsRegister(SignedMessage message, ServerPlayerEntity sender, MessageType.Parameters params) {
-        ShareMessageEvents.register(message, sender, params);
+        ShareMessageEvents.register(message, sender);
     }
 
     public static void CommandsRegister(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess registryAccess, CommandManager.RegistrationEnvironment environment) {
