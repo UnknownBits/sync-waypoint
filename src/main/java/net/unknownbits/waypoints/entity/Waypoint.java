@@ -12,70 +12,56 @@ import java.util.UUID;
 public class Waypoint {
     private final UUID uuid;
     private final GameProfile creator;
-    private final Instant createtimestamp;
     private final List<GameProfile> authors = new ArrayList<>();
     private Vec3i position;
-    private Instant lastmodifytimestamp;
     private Text id;
     private Text description;
 
-    public Waypoint(GameProfile creator, Vec3i position, Instant cts) {
+    public Waypoint(GameProfile creator,Vec3i pos) {
+        this.uuid = UUID.randomUUID();
+
+        this.creator = creator;
+        this.position = pos;
+
         this.id = Text.empty();
         this.description = Text.empty();
-        this.creator = creator;
-        this.position = position;
-        this.createtimestamp = cts;
-        this.lastmodifytimestamp = cts;
-        this.uuid = UUID.randomUUID();
     }
 
-    public Waypoint(GameProfile creator, int x, int y, int z, Instant cts) {
-        this(creator, new Vec3i(x, y, z), cts);
+    public void modify(GameProfile author, Vec3i position) {
+        this.authors.add(author);
+        this.position = position;
     }
 
     public UUID getUuid() {
         return uuid;
     }
-
     public GameProfile getCreator() {
         return creator;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Waypoint v && v.position == this.position;
+    }
+
+    @Override
+    public String toString() {
+        return "waypoint::"+uuid+"::"+id+"::"+description+"::"+position.toShortString();
     }
 
     public List<GameProfile> getAuthors() {
         return authors;
     }
-
-    public Vec3i getPosition() {
-        return position;
-    }
-
-    public Instant getCreatetimestamp() {
-        return createtimestamp;
-    }
-
-    public Instant getLastmodifytimestamp() {
-        return lastmodifytimestamp;
-    }
-
     public Text getId() {
         return id;
     }
-
-    public void setId(Text id) {
-        this.id = id;
-    }
-
     public Text getDescription() {
         return description;
     }
-
+    public void setId(Text id) {
+        this.id = id;
+    }
     public void setDescription(Text description) {
         this.description = description;
-    }
-
-    public void modify(GameProfile author, Vec3i position, Instant lmts) {
-        this.authors.add(author);
-        this.position = position;
-        this.lastmodifytimestamp = lmts;
     }
 }

@@ -11,9 +11,4 @@ public class ModMenuApiImpl implements ModMenuApi {
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return ConfigScreen::new;
     }
-
-    @Override
-    public void attachModpackBadges(Consumer<String> consumer) {
-        ModMenuApi.super.attachModpackBadges(consumer);
-    }
 }
