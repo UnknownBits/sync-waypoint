@@ -25,7 +25,7 @@ public class Waypoints implements ModInitializer {
     public static final String MOD_ID = "waypoints";
     public static final String GITHUB_REF = "UnknownBits/ModMenu";
     public static final Logger LOGGER = LoggerFactory.getLogger("Mod Menu");
-    public static final Version VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion();
+    public static final Version VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).isPresent() ? FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion() : null;
     public static List<Waypoint> waypointList = new ArrayList<>();
 
     public static void EventsRegister(SignedMessage message, ServerPlayerEntity sender, MessageType.Parameters params) {
@@ -40,5 +40,6 @@ public class Waypoints implements ModInitializer {
     public void onInitialize() {
         CommandRegistrationCallback.EVENT.register(Waypoints::CommandsRegister);
         ServerMessageEvents.CHAT_MESSAGE.register(Waypoints::EventsRegister);
+        LOGGER.info(GITHUB_REF);
     }
 }

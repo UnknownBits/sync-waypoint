@@ -1,6 +1,5 @@
 package net.unknownbits.waypoints.events;
 
-import net.minecraft.network.message.MessageType;
 import net.minecraft.network.message.SignedMessage;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.unknownbits.waypoints.entity.Waypoint;
