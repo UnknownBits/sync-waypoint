@@ -4,7 +4,6 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3i;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -17,7 +16,7 @@ public class Waypoint {
     private Text id;
     private Text description;
 
-    public Waypoint(GameProfile creator,Vec3i pos) {
+    public Waypoint(GameProfile creator, Vec3i pos) {
         this.uuid = UUID.randomUUID();
 
         this.creator = creator;
@@ -35,6 +34,7 @@ public class Waypoint {
     public UUID getUuid() {
         return uuid;
     }
+
     public GameProfile getCreator() {
         return creator;
     }
@@ -46,21 +46,25 @@ public class Waypoint {
 
     @Override
     public String toString() {
-        return "waypoint::"+uuid+"::"+id+"::"+description+"::"+position.toShortString();
+        return "waypoint::" + uuid + "::" + id + "::" + description + "::" + position.toShortString();
     }
 
     public List<GameProfile> getAuthors() {
         return authors;
     }
+
     public Text getId() {
         return id;
     }
-    public Text getDescription() {
-        return description;
-    }
+
     public void setId(Text id) {
         this.id = id;
     }
+
+    public Text getDescription() {
+        return description;
+    }
+
     public void setDescription(Text description) {
         this.description = description;
     }

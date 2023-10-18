@@ -5,9 +5,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3i;
 import net.unknownbits.waypoints.Waypoints;
 
-import java.time.Instant;
-import java.util.regex.Pattern;
-
 public class WaypointFactory {
     // 标头:名称:标识:x:y:z:未知:未知:世界标识
     // xaero-waypoint:Waypoint:X:164:63:158:14:false:0:Internal-overworld-waypoints
@@ -38,8 +35,8 @@ public class WaypointFactory {
         return wp;
     }
 
-    public static void add(Waypoint wp){
-        for (Waypoint waypoint: Waypoints.waypointList) {
+    public static void add(Waypoint wp) {
+        for (Waypoint waypoint : Waypoints.waypointList) {
             if (waypoint == wp) return;
         }
         Waypoints.waypointList.add(wp);

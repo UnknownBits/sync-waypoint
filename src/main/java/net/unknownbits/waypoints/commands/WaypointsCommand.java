@@ -11,8 +11,6 @@ import net.unknownbits.waypoints.entity.WaypointFactory;
 
 import java.util.Objects;
 
-import static net.unknownbits.waypoints.Waypoints.waypointList;
-
 public class WaypointsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         var Croot = CommandManager.literal("waypoints")
@@ -36,14 +34,14 @@ public class WaypointsCommand {
                         .executes(context -> {
                             var source = context.getSource();
                             var creator = Objects.requireNonNull(source.getPlayer()).getGameProfile();
-                            var data = StringArgumentType.getString(context,"data");
+                            var data = StringArgumentType.getString(context, "data");
 
 
                             Waypoint wp = null;
                             if (data.startsWith("xaero-waypoint:")) {
                                 wp = WaypointFactory.GeneratefromXaeroMap(data, creator);
                             } else if (data.startsWith("[x:")) {
-                                wp = WaypointFactory.GeneratefromJourneyMap(data,creator);
+                                wp = WaypointFactory.GeneratefromJourneyMap(data, creator);
                             }
 
                             if (wp != null) WaypointFactory.add(wp);
@@ -51,14 +49,10 @@ public class WaypointsCommand {
                         }));
 
         var Cremove = CommandManager.literal("remove")
-                .executes(context -> {
-                    return 0;
-                });
+                .executes(context -> 0);
 
         var Cmodify = CommandManager.literal("modify")
-                .executes(context -> {
-                    return 0;
-                });
+                .executes(context -> 0);
 
 
         var Creload = CommandManager.literal("reload")
