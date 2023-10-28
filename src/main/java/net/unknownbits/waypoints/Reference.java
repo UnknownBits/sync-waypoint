@@ -3,8 +3,6 @@ package net.unknownbits.waypoints;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
 import net.minecraft.text.Text;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Reference {
     public static final String MOD_ID = "waypoints";

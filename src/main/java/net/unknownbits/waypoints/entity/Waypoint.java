@@ -2,6 +2,7 @@ package net.unknownbits.waypoints.entity;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3i;
 
 import java.util.ArrayList;
@@ -12,18 +13,47 @@ public class Waypoint {
     private final UUID uuid;
     private final GameProfile creator;
     private final List<GameProfile> authors = new ArrayList<>();
+    private final Identifier dimension;
+    private final Text description;
     private Vec3i position;
     private Text id;
-    private Text description;
 
-    public Waypoint(GameProfile creator, Vec3i pos) {
+    public Waypoint(GameProfile creator, Vec3i pos, Identifier dim) {
         this.uuid = UUID.randomUUID();
 
         this.creator = creator;
         this.position = pos;
+        this.dimension = dim;
 
         this.id = Text.empty();
         this.description = Text.empty();
+    }
+
+    public Waypoint(GameProfile creator, Vec3i pos, String dim) {
+        this(creator, pos, new Identifier(dim));
+    }
+
+    public Waypoint(GameProfile creator, Vec3i pos, String dim, Text id) {
+        this(creator, pos, dim);
+        this.id = id;
+    }
+
+    public static Waypoint generateFromXaeroMap(String data, GameProfile creator) {
+        String[] cache = data.split(":");
+        int x = Integer.parseInt(cache[3]);
+        int y = Integer.parseInt(cache[4]);
+        int z = Integer.parseInt(cache[5]);
+        String dim = cache[9].split("-")[1];
+        return new Waypoint(creator, new Vec3i(x, y, z), dim, Text.of(cache[1]));
+    }
+
+    public static Waypoint generateFromJourneyMap(String data, GameProfile creator) {
+        String[] cache = data.split(":");
+        int x = Integer.parseInt(cache[1].split(",")[0]);
+        int y = Integer.parseInt(cache[2].split(",")[0]);
+        int z = Integer.parseInt(cache[3].split(",")[0]);
+        String dim = cache[5];
+        return new Waypoint(creator, new Vec3i(x, y, z), dim);
     }
 
     public void modify(GameProfile author, Vec3i position) {
@@ -44,11 +74,6 @@ public class Waypoint {
         return obj instanceof Waypoint v && v.position == this.position;
     }
 
-    @Override
-    public String toString() {
-        return "waypoint::" + uuid + "::" + id + "::" + description + "::" + position.toShortString();
-    }
-
     public List<GameProfile> getAuthors() {
         return authors;
     }
@@ -57,15 +82,11 @@ public class Waypoint {
         return id;
     }
 
-    public void setId(Text id) {
-        this.id = id;
-    }
-
     public Text getDescription() {
         return description;
     }
 
-    public void setDescription(Text description) {
-        this.description = description;
+    public Identifier getDimension() {
+        return dimension;
     }
 }
