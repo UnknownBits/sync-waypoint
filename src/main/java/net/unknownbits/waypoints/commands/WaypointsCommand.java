@@ -5,9 +5,11 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
+import net.unknownbits.waypoints.Reference;
 import net.unknownbits.waypoints.Waypoints;
 import net.unknownbits.waypoints.entity.Waypoint;
 import net.unknownbits.waypoints.entity.WaypointFactory;
+import net.unknownbits.waypoints.tools.DataStorage;
 
 import java.util.Objects;
 
@@ -15,7 +17,7 @@ public class WaypointsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         var Croot = CommandManager.literal("waypoints")
                 .executes(context -> {
-                    context.getSource().sendMessage(Text.translatable("waypoints.info", Waypoints.VERSION));
+                    context.getSource().sendMessage(Text.translatable("waypoints.info", Reference.VERSION));
                     return 0;
                 });
 
@@ -23,7 +25,7 @@ public class WaypointsCommand {
                 .executes(context -> {
                     var source = context.getSource();
 
-                    for (Waypoint waypoint : Waypoints.waypointList) {
+                    for (Waypoint waypoint : DataStorage.getInstance().waypointList) {
                         source.sendMessage(Text.translatable(waypoint.toString()));
                     }
                     return 0;
@@ -44,7 +46,7 @@ public class WaypointsCommand {
                                 wp = WaypointFactory.GeneratefromJourneyMap(data, creator);
                             }
 
-                            if (wp != null) WaypointFactory.add(wp);
+                            if (wp != null) DataStorage.addWaypointData(wp);
                             return 0;
                         }));
 

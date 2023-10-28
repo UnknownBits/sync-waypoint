@@ -4,6 +4,7 @@ import net.minecraft.network.message.SignedMessage;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.unknownbits.waypoints.entity.Waypoint;
 import net.unknownbits.waypoints.entity.WaypointFactory;
+import net.unknownbits.waypoints.tools.DataStorage;
 
 public class ShareMessageEvents {
     public static void register(SignedMessage message, ServerPlayerEntity sender) {
@@ -16,6 +17,6 @@ public class ShareMessageEvents {
             wp = WaypointFactory.GeneratefromJourneyMap(content, sender.getGameProfile());
         }
 
-        if (wp != null) WaypointFactory.add(wp);
+        if (wp != null) DataStorage.addWaypointData(wp);
     }
 }

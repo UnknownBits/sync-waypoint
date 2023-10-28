@@ -4,6 +4,7 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3i;
 import net.unknownbits.waypoints.Waypoints;
+import net.unknownbits.waypoints.tools.DataStorage;
 
 public class WaypointFactory {
     // 标头:名称:标识:x:y:z:未知:未知:世界标识
@@ -32,12 +33,5 @@ public class WaypointFactory {
         var pos = new Vec3i(x, y, z);
 
         return new Waypoint(creator, pos);
-    }
-
-    public static void add(Waypoint wp) {
-        for (Waypoint waypoint : Waypoints.waypointList) {
-            if (waypoint == wp) return;
-        }
-        Waypoints.waypointList.add(wp);
     }
 }

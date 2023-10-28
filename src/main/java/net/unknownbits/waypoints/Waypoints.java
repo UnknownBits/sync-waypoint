@@ -15,18 +15,15 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.unknownbits.waypoints.commands.WaypointsCommand;
 import net.unknownbits.waypoints.entity.Waypoint;
 import net.unknownbits.waypoints.events.ShareMessageEvents;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Waypoints implements ModInitializer {
-    public static final String MOD_ID = "waypoints";
-    public static final String GITHUB_REF = "UnknownBits/ModMenu";
-    public static final Logger LOGGER = LoggerFactory.getLogger("Mod Menu");
-    public static final Version VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).isPresent() ? FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion() : null;
-    public static List<Waypoint> waypointList = new ArrayList<>();
+    public static final Logger logger = LogManager.getLogger(Reference.MOD_ID);
 
     public static void EventsRegister(SignedMessage message, ServerPlayerEntity sender, MessageType.Parameters params) {
         ShareMessageEvents.register(message, sender);
@@ -40,6 +37,5 @@ public class Waypoints implements ModInitializer {
     public void onInitialize() {
         CommandRegistrationCallback.EVENT.register(Waypoints::CommandsRegister);
         ServerMessageEvents.CHAT_MESSAGE.register(Waypoints::EventsRegister);
-        LOGGER.info(GITHUB_REF);
     }
 }
