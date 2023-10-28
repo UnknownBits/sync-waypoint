@@ -26,7 +26,7 @@ public class WaypointsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         var Croot = CommandManager.literal("waypoints")
                 .executes(context -> {
-                    context.getSource().sendMessage(Text.translatable("waypoints.info", Reference.VERSION));
+                    context.getSource().sendMessage(RenderTextFactory.root);
                     return 0;
                 });
 
@@ -79,7 +79,6 @@ public class WaypointsCommand {
         var Creload = CommandManager.literal("reload")
                 .requires(source -> source.hasPermissionLevel(2))
                 .executes(context -> {
-                    context.getSource().sendMessage();
                     return 0;
                 });
 

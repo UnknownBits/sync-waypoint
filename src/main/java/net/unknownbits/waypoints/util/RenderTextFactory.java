@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mutable;
 public class RenderTextFactory {
     public String SPACE = "{\"text\":\" \"},";
     public String LINEFEED = "{\"text\":\"/n\"},";
-    public Text root_json = Text.Serializer.fromJson("""
+    public static Text root = Text.Serializer.fromJson("""
         [
                 {"text":"§e§l【Waypoints】§r"},
                 {"text":"\\n"},
