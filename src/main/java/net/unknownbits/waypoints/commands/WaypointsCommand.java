@@ -32,7 +32,7 @@ public class WaypointsCommand {
 
         var Croot2 = CommandManager.literal("wp")
                 .executes(context -> {
-                    context.getSource().sendMessage(Text.translatable("waypoints.info", Reference.VERSION));
+                    context.getSource().sendMessage(RenderTextFactory.root);
                     return 0;
                 });
 
