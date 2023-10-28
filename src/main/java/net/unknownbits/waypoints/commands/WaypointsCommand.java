@@ -1,25 +1,15 @@
 package net.unknownbits.waypoints.commands;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.ibm.icu.impl.UResource;
-import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import net.unknownbits.waypoints.Reference;
-import net.unknownbits.waypoints.Waypoints;
 import net.unknownbits.waypoints.entity.Waypoint;
 import net.unknownbits.waypoints.util.DataStorage;
 import net.unknownbits.waypoints.util.RenderTextFactory;
-import net.unknownbits.waypoints.util.Utils;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class WaypointsCommand {
@@ -62,8 +52,7 @@ public class WaypointsCommand {
                             Waypoint wp = null;
 
                             if (data.startsWith("xaero-waypoint:")) wp = Waypoint.generateFromXaeroMap(data, creator);
-                            else
-                                if (data.startsWith("[x:")) wp = Waypoint.generateFromJourneyMap(data, creator);
+                            else if (data.startsWith("[x:")) wp = Waypoint.generateFromJourneyMap(data, creator);
 
                             if (wp != null) DataStorage.getInstance().getWaypointList().add(wp);
                             return 0;
