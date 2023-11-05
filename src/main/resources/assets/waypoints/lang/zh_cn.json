@@ -1,4 +1,5 @@
 {
   "modmenu.nameTranslation.modmenu": "旅行锚点",
-  "settings.waypoints.link-plus": "[ 链接增强 ]"
+  "settings.waypoints.link-plus": "[ 链接增强 ]",
+  "wp.list": "列出所有共享中的坐标点"
 }

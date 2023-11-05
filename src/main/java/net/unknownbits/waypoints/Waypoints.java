@@ -12,11 +12,9 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.unknownbits.waypoints.commands.WaypointsCommand;
 import net.unknownbits.waypoints.events.ShareMessageEvents;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Waypoints implements ModInitializer {
-    public static final Logger logger = LogManager.getLogger(Reference.MOD_ID);
+
 
     public static void EventsRegister(SignedMessage message, ServerPlayerEntity sender, MessageType.Parameters params) {
         ShareMessageEvents.register(message, sender);

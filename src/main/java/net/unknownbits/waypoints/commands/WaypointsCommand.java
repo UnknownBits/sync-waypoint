@@ -14,15 +14,9 @@ import java.util.Objects;
 
 public class WaypointsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        var Croot = CommandManager.literal("waypoints")
+        var Croot = CommandManager.literal("wp")
                 .executes(context -> {
-                    context.getSource().sendMessage(RenderTextFactory.root);
-                    return 0;
-                });
-
-        var Croot2 = CommandManager.literal("wp")
-                .executes(context -> {
-                    context.getSource().sendMessage(RenderTextFactory.root);
+                    context.getSource().sendMessage(RenderTextFactory.ListButton);
                     return 0;
                 });
 
@@ -71,7 +65,6 @@ public class WaypointsCommand {
                     return 0;
                 });
 
-        dispatcher.register(Croot2.then(Clist).then(Cadd).then(Creload).then(Cremove).then(Cmodify));
         dispatcher.register(Croot.then(Clist).then(Cadd).then(Creload).then(Cremove).then(Cmodify));
     }
 }
