@@ -14,9 +14,12 @@ import java.util.Objects;
 
 public class WaypointsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        var Croot = CommandManager.literal("wp")
+        var Croot = CommandManager.literal("waypoints")
                 .executes(context -> {
-                    context.getSource().sendMessage(RenderTextFactory.ListButton);
+                    context.getSource().sendMessage(Text.literal("§e§l【Waypoints】§r")
+                            .append(RenderTextFactory.LINEFEED)
+                            .append(RenderTextFactory.FunctionButtons)
+                    );
                     return 0;
                 });
 

@@ -16,6 +16,7 @@
   ],
   "license": "MIT",
   "icon": "assets/waypoints/icon.png",
+  "accessWidener": "waypoints.accesswidener",
   "environment": "*",
   "entrypoints": {
     "main": [ "net.unknownbits.waypoints.Waypoints" ],

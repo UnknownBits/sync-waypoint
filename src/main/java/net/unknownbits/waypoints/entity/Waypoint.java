@@ -10,13 +10,41 @@ import java.util.List;
 import java.util.UUID;
 
 public class Waypoint {
+
+    /**
+     * 全局唯一识别码
+     */
     private final UUID uuid;
+
+    /**
+     * 创建者
+     */
     private final GameProfile creator;
+
+    /**
+     * 编辑者
+     */
     private final List<GameProfile> authors = new ArrayList<>();
+
+    /**
+     * 维度信息
+     */
     private final Identifier dimension;
+
+    /**
+     * 介绍
+     */
     private final Text description;
+
+    /**
+     * 坐标点
+     */
     private Vec3i position;
-    private Text id;
+
+    /**
+     * 名称
+     */
+    private Text name;
 
     public Waypoint(GameProfile creator, Vec3i pos, Identifier dim) {
         this.uuid = UUID.randomUUID();
@@ -25,7 +53,7 @@ public class Waypoint {
         this.position = pos;
         this.dimension = dim;
 
-        this.id = Text.empty();
+        this.name = Text.empty();
         this.description = Text.empty();
     }
 
@@ -35,7 +63,7 @@ public class Waypoint {
 
     public Waypoint(GameProfile creator, Vec3i pos, String dim, Text id) {
         this(creator, pos, dim);
-        this.id = id;
+        this.name = id;
     }
 
     public static Waypoint generateFromXaeroMap(String data, GameProfile creator) {
@@ -57,6 +85,9 @@ public class Waypoint {
     }
 
     public void modify(GameProfile author, Vec3i position) {
+        for (GameProfile gameProfile : authors)
+            if (gameProfile == author)
+                return;
         this.authors.add(author);
         this.position = position;
     }
@@ -78,8 +109,8 @@ public class Waypoint {
         return authors;
     }
 
-    public Text getId() {
-        return id;
+    public Text getName() {
+        return name;
     }
 
     public Text getDescription() {

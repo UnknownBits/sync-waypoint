@@ -1,48 +1,30 @@
 package net.unknownbits.waypoints.util;
 
 import net.minecraft.text.*;
+import net.unknownbits.waypoints.widgets.ButtonWidget;
 
 public class RenderTextFactory {
-    public static Text root = Text.Serializer.fromJson("""
-            [
-                    {"text":"§e§l【Waypoints】§r"},
-                    {"text":"\\n"},
-                    {"text":"§7/wp","clickEvent":{"action":"run_command","value":"/wp"}},
-                    {"text":"快捷使用§7(单击下方按钮)"},
-                    {"text":"\\n"},
-                    {"text":"[+]","color":"green",
-                        "clickEvent":{"action":"run_command","value":"/wp add"},
-                        "hoverEvent":{"action":"show_text","value":{"text":"向共享中添加坐标点\\n§7/wp add"}}},
-                    {"text":" "},
-                    {"text":"[-]","color":"red",
-                         "clickEvent":{"action":"run_command","value":"/wp remove"},
-                         "hoverEvent":{"action":"show_text","value":{"text":"从共享中移除坐标点\\n§7/wp remove"}}},
-                    {"text":" "},
-                    {"text":"[?]","color":"aqua",
-                         "clickEvent":{"action":"run_command","value":"/wp search"},
-                         "hoverEvent":{"action":"show_text","value":{"text":"在共享中搜索坐标点\\n§7/wp search §f| §7§nXXX§r§7在哪"}}},
-                    {"text":" "},
-                    {"text":"[…]","color":"white",
-                         "clickEvent":{"action":"run_command","value":"/wp list"},
-                         "hoverEvent":{"action":"show_text","value":{"text":"列出所有共享中的坐标点\\n§7/wp list"}}},
-                    {"text":" "},
-                    {"text":"[H]","color":"yellow",
-                         "clickEvent":{"action":"run_command","value":"/wp help"},
-                         "hoverEvent":{"action":"show_text","value":{"text":"查看坐标点的更多帮助\\n§7/wp help"}}}        
-                    ]
-                """);
-    public static MutableText ListButton = Utils.make(() -> {
-        var style = Style.EMPTY
-                .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable("wp.list")))
-                .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/wp list"));
-        return Text.literal("[…]").setStyle(style);
-    });
-    public static MutableText AddButton = Utils.make(() -> {
-        var style = Style.EMPTY
-                .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable("wp.add")))
-                .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/wp add"));
-        return Text.literal("[+]").setStyle(style);
-    });
-    public String SPACE = "{\"text\":\" \"},";
-    public String LINEFEED = "{\"text\":\"/n\"},";
+    public final static Text LINEFEED = Text.of(new String(new byte[]{10}));
+    public final static MutableText AddButton = ButtonWidget.literal("[+]",
+            TextColor.parse("green"),
+            new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/waypoints add"),
+            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable("waypoints.add", LINEFEED)));
+    public final static MutableText RemoveButton = ButtonWidget.literal("[-]",
+            TextColor.parse("red"),
+            new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/waypoints remove"),
+            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable("waypoints.remove", LINEFEED)));
+    public final static MutableText SearchButton = ButtonWidget.literal("[?]",
+            TextColor.parse("aqua"),
+            new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/waypoints search"),
+            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable("waypoints.search", LINEFEED)));
+    public final static MutableText ListButton = ButtonWidget.literal("[…]",
+            TextColor.parse("white"),
+            new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/waypoints list"),
+            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable("waypoints.list", LINEFEED)));
+    public final static MutableText HelpButton = ButtonWidget.literal("[H]",
+            TextColor.parse("yellow"),
+            new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/waypoints help"),
+            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable("waypoints.help", LINEFEED)));
+    public final static MutableText FunctionButtons = ButtonWidget.ButtonsWidget.of(AddButton, RemoveButton, SearchButton, ListButton, HelpButton);
+
 }

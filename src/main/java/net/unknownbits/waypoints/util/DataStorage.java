@@ -1,10 +1,5 @@
 package net.unknownbits.waypoints.util;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.mojang.authlib.GameProfile;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.unknownbits.waypoints.entity.Waypoint;
 
 import java.util.ArrayList;
@@ -15,13 +10,6 @@ import java.util.List;
 // [x:19, y:63, z:3, dim:minecraft:overworld]
 public class DataStorage {
     static final DataStorage INSTANCE = new DataStorage();
-    public static Gson GSON = Utils.make(() -> {
-        GsonBuilder gsonBuilder = new GsonBuilder().setPrettyPrinting();
-        gsonBuilder.registerTypeAdapter(GameProfile.class, new GameProfile.Serializer());
-        gsonBuilder.registerTypeAdapter(Identifier.class, new Identifier.Serializer());
-        gsonBuilder.registerTypeAdapter(Text.class, new Text.Serializer());
-        return gsonBuilder.create();
-    });
     private final List<Waypoint> waypointList;
     private int per_page;
 
