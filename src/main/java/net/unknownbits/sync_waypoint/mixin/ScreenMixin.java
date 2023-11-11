@@ -1,8 +1,8 @@
-package net.unknownbits.waypoints.mixin;
+package net.unknownbits.sync_waypoint.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.unknownbits.waypoints.client.Config;
+import net.unknownbits.sync_waypoint.client.Config;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
@@ -38,7 +38,7 @@ public abstract class ScreenMixin {
         // message.charAt(0) != '/'
         String message = (String) clickEventContent;
         if (!Config.TextClick) return;
-        if (message.startsWith("xaero_waypoint_add:") || message.startsWith("/wp") || message.startsWith("/waypoints"))
+        if (message.startsWith("xaero_waypoint_add:"))
             this.client.player.networkHandler.sendChatMessage(message);
     }
 }

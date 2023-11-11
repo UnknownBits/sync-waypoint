@@ -1,4 +1,4 @@
-package net.unknownbits.waypoints.widgets;
+package net.unknownbits.sync_waypoint.widgets;
 
 import com.google.common.collect.Lists;
 import net.minecraft.text.*;

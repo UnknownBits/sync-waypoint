@@ -1,0 +1,9 @@
+{
+  "modmenu.nameTranslation.modmenu": "共享航点",
+  "sync-waypoint.settings.link-plus": "[ 链接增强 ]",
+  "sync-waypoint.add": "向航点中添加坐标点%s§7/waypoints add",
+  "sync-waypoint.remove": "从航点中移除坐标点%s§7/waypoints remove",
+  "sync-waypoint.search": "在航点中搜索坐标点%s§7/waypoints search §f  §7§nXXX§r§7在哪",
+  "sync-waypoint.list": "列出所有共享中的坐标点%s§7/waypoints list",
+  "sync-waypoint.help": "查看坐标点的更多帮助%s§7/waypoints help"
+}

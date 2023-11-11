@@ -1,9 +1,9 @@
-package net.unknownbits.waypoints.events;
+package net.unknownbits.sync_waypoint.events;
 
 import net.minecraft.network.message.SignedMessage;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.unknownbits.waypoints.entity.Waypoint;
-import net.unknownbits.waypoints.util.DataStorage;
+import net.unknownbits.sync_waypoint.entity.Waypoint;
+import net.unknownbits.sync_waypoint.util.DataStorage;
 
 public class ShareMessageEvents {
     public static void register(SignedMessage message, ServerPlayerEntity sender) {

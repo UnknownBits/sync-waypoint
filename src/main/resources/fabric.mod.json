@@ -1,30 +1,38 @@
 {
   "schemaVersion": 1,
-  "id": "waypoints",
+  "id": "sync-waypoint",
   "version": "${version}",
-  "name": "Waypoints",
+  "name": "Sync Waypoint",
   "description": "",
-  "authors": ["UnknownBits"],
+  "authors": [
+    "UnknownBits"
+  ],
   "contact": {
     "homepage": "",
-    "sources": "https://github.com/UnknownBits/Waypoints.git",
-    "issues": "https://github.com/UnknownBits/Waypoints/issues"
+    "sources": "https://github.com/UnknownBits/sync-waypoint.git",
+    "issues": "https://github.com/UnknownBits/sync-waypoint/issues"
   },
   "contributors": [
     "HuaJiKing402",
     "Fanzhitianyu"
   ],
   "license": "MIT",
-  "icon": "assets/waypoints/icon.png",
-  "accessWidener": "waypoints.accesswidener",
+  "icon": "assets/sync-waypoint/icon.png",
+  "accessWidener": "sync-waypoint.accesswidener",
   "environment": "*",
   "entrypoints": {
-    "main": [ "net.unknownbits.waypoints.Waypoints" ],
-    "client": [ "net.unknownbits.waypoints.client.WaypointsClient" ],
-    "modmenu": [ "net.unknownbits.waypoints.client.ModMenuApiImpl" ]
+    "main": [
+      "net.unknownbits.sync_waypoint.Sync_Waypoint"
+    ],
+    "client": [
+      "net.unknownbits.sync_waypoint.client.WaypointsClient"
+    ],
+    "modmenu": [
+      "net.unknownbits.sync_waypoint.client.ModMenuApiImpl"
+    ]
   },
   "mixins": [
-    "waypoints.mixins.json"
+    "sync-waypoint.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

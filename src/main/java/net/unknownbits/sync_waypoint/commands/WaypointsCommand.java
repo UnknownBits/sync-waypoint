@@ -1,4 +1,4 @@
-package net.unknownbits.waypoints.commands;
+package net.unknownbits.sync_waypoint.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -6,9 +6,9 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import net.unknownbits.waypoints.entity.Waypoint;
-import net.unknownbits.waypoints.util.DataStorage;
-import net.unknownbits.waypoints.util.RenderTextFactory;
+import net.unknownbits.sync_waypoint.entity.Waypoint;
+import net.unknownbits.sync_waypoint.util.DataStorage;
+import net.unknownbits.sync_waypoint.util.RenderTextFactory;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ public class WaypointsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         var Croot = CommandManager.literal("waypoints")
                 .executes(context -> {
-                    context.getSource().sendMessage(Text.literal("§e§l【Waypoints】§r")
+                    context.getSource().sendMessage(Text.literal("§e§l【Sync_Waypoint】§r")
                             .append(RenderTextFactory.LINEFEED)
                             .append(RenderTextFactory.FunctionButtons)
                     );

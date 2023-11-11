@@ -1,4 +1,4 @@
-package net.unknownbits.waypoints.client;
+package net.unknownbits.sync_waypoint.client;
 
 public class Config {
     public static boolean TextClick = false;

@@ -1,4 +1,4 @@
-package net.unknownbits.waypoints.entity;
+package net.unknownbits.sync_waypoint.entity;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.text.Text;
