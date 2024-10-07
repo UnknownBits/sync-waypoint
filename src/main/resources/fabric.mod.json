@@ -8,27 +8,18 @@
     "UnknownBits"
   ],
   "contact": {
-    "homepage": "",
-    "sources": "https://github.com/UnknownBits/sync-waypoint.git",
-    "issues": "https://github.com/UnknownBits/sync-waypoint/issues"
+    "repo": "https://github.com/UnknownBits/sync-waypoint"
   },
-  "contributors": [
-    "HuaJiKing402",
-    "Fanzhitianyu"
-  ],
   "license": "MIT",
   "icon": "assets/sync-waypoint/icon.png",
   "accessWidener": "sync-waypoint.accesswidener",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.unknownbits.sync_waypoint.Sync_Waypoint"
-    ],
     "client": [
-      "net.unknownbits.sync_waypoint.client.WaypointsClient"
+      "top.unknownbits.sync_waypoint.client.SyncWaypointClient"
     ],
-    "modmenu": [
-      "net.unknownbits.sync_waypoint.client.ModMenuApiImpl"
+    "main": [
+      "top.unknownbits.sync_waypoint.SyncWaypoint"
     ]
   },
   "mixins": [
@@ -37,9 +28,6 @@
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "~${minecraft_version}"
-  },
-  "recommends": {
-    "modmenu": ">=4.1.0"
+    "minecraft": "${minecraft_version}"
   }
 }
