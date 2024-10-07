@@ -1,4 +1,4 @@
-package net.unknownbits.sync_waypoint;
+package top.unknownbits.sync_waypoint;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -7,7 +7,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.unknownbits.sync_waypoint.util.Utils;
+import top.unknownbits.sync_waypoint.util.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

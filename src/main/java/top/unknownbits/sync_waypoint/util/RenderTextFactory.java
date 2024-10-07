@@ -1,7 +1,7 @@
-package net.unknownbits.sync_waypoint.util;
+package top.unknownbits.sync_waypoint.util;
 
 import net.minecraft.text.*;
-import net.unknownbits.sync_waypoint.widgets.ButtonWidget;
+import top.unknownbits.sync_waypoint.widgets.ButtonWidget;
 
 public class RenderTextFactory {
     public final static Text LINEFEED = Text.of(new String(new byte[]{10}));

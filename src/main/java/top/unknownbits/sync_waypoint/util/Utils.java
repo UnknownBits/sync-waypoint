@@ -1,4 +1,4 @@
-package net.unknownbits.sync_waypoint.util;
+package top.unknownbits.sync_waypoint.util;
 
 import java.util.function.Supplier;
 

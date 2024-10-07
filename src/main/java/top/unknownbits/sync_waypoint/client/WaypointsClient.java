@@ -1,4 +1,4 @@
-package net.unknownbits.sync_waypoint.client;
+package top.unknownbits.sync_waypoint.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;

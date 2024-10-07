@@ -1,4 +1,4 @@
-package net.unknownbits.sync_waypoint;
+package top.unknownbits.sync_waypoint;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.api.ModInitializer;
@@ -10,8 +10,8 @@ import net.minecraft.network.message.SignedMessage;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.unknownbits.sync_waypoint.commands.WaypointsCommand;
-import net.unknownbits.sync_waypoint.events.ShareMessageEvents;
+import top.unknownbits.sync_waypoint.commands.WaypointsCommand;
+import top.unknownbits.sync_waypoint.events.ShareMessageEvents;
 
 public class Sync_Waypoint implements ModInitializer {
 

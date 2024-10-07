@@ -22,13 +22,13 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.unknownbits.sync_waypoint.Sync_Waypoint"
+      "top.unknownbits.sync_waypoint.Sync_Waypoint"
     ],
     "client": [
-      "net.unknownbits.sync_waypoint.client.WaypointsClient"
+      "top.unknownbits.sync_waypoint.client.WaypointsClient"
     ],
     "modmenu": [
-      "net.unknownbits.sync_waypoint.client.ModMenuApiImpl"
+      "top.unknownbits.sync_waypoint.client.ModMenuApiImpl"
     ]
   },
   "mixins": [

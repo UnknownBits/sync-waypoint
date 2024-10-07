@@ -1,6 +1,6 @@
-package net.unknownbits.sync_waypoint.util;
+package top.unknownbits.sync_waypoint.util;
 
-import net.unknownbits.sync_waypoint.entity.Waypoint;
+import top.unknownbits.sync_waypoint.entity.Waypoint;
 
 import java.util.ArrayList;
 import java.util.List;

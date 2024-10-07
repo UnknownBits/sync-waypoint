@@ -1,4 +1,4 @@
-package net.unknownbits.sync_waypoint.commands;
+package top.unknownbits.sync_waypoint.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -6,9 +6,9 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import net.unknownbits.sync_waypoint.entity.Waypoint;
-import net.unknownbits.sync_waypoint.util.DataStorage;
-import net.unknownbits.sync_waypoint.util.RenderTextFactory;
+import top.unknownbits.sync_waypoint.entity.Waypoint;
+import top.unknownbits.sync_waypoint.util.DataStorage;
+import top.unknownbits.sync_waypoint.util.RenderTextFactory;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package net.unknownbits.sync_waypoint.client.gui;
+package top.unknownbits.sync_waypoint.client.gui;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -9,7 +9,7 @@ import net.minecraft.client.gui.widget.CyclingButtonWidget;
 import net.minecraft.client.gui.widget.GridWidget;
 import net.minecraft.client.gui.widget.SimplePositioningWidget;
 import net.minecraft.text.Text;
-import net.unknownbits.sync_waypoint.client.Config;
+import top.unknownbits.sync_waypoint.client.Config;
 
 @Environment(EnvType.CLIENT)
 public class ConfigScreen extends Screen {
