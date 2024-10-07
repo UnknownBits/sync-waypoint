@@ -1,13 +1,13 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.unknownbits.sync_waypoint.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "package": "top.unknownbits.sync_waypoint.mixin",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "TitleScreenMixin"
   ],
   "client": [
-    "ScreenMixin"
+    "ScreenMixin",
+    "TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

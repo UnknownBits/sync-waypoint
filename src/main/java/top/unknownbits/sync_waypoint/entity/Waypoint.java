@@ -1,12 +1,16 @@
-package net.unknownbits.sync_waypoint.entity;
+package top.unknownbits.sync_waypoint.entity;
 
 import com.mojang.authlib.GameProfile;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3i;
+import top.unknownbits.sync_waypoint.util.DataStorage;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Waypoint {
@@ -58,7 +62,7 @@ public class Waypoint {
     }
 
     public Waypoint(GameProfile creator, Vec3i pos, String dim) {
-        this(creator, pos, new Identifier(dim));
+        this(creator, pos, Identifier.of(dim));
     }
 
     public Waypoint(GameProfile creator, Vec3i pos, String dim, Text id) {
@@ -66,7 +70,7 @@ public class Waypoint {
         this.name = id;
     }
 
-    public static Waypoint generateFromXaeroMap(String data, GameProfile creator) {
+    private static Waypoint generateFromXaeroMap(String data, GameProfile creator) {
         String[] cache = data.split(":");
         int x = Integer.parseInt(cache[3]);
         int y = Integer.parseInt(cache[4]);
@@ -75,13 +79,20 @@ public class Waypoint {
         return new Waypoint(creator, new Vec3i(x, y, z), dim, Text.of(cache[1]));
     }
 
-    public static Waypoint generateFromJourneyMap(String data, GameProfile creator) {
+    private static Waypoint generateFromJourneyMap(String data, GameProfile creator) {
         String[] cache = data.split(":");
         int x = Integer.parseInt(cache[1].split(",")[0]);
         int y = Integer.parseInt(cache[2].split(",")[0]);
         int z = Integer.parseInt(cache[3].split(",")[0]);
         String dim = cache[5];
         return new Waypoint(creator, new Vec3i(x, y, z), dim);
+    }
+
+    public static Waypoint of(String data, GameProfile creator){
+        Waypoint wp = null;
+        if (data.startsWith("xaero-waypoint:")) wp = Waypoint.generateFromXaeroMap(data, creator);
+        else if (data.startsWith("[x:")) wp = Waypoint.generateFromJourneyMap(data, creator);
+        return wp;
     }
 
     public void modify(GameProfile author, Vec3i position) {
@@ -92,21 +103,28 @@ public class Waypoint {
         this.position = position;
     }
 
-    public UUID getUuid() {
-        return uuid;
-    }
-
     public GameProfile getCreator() {
         return creator;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return obj instanceof Waypoint v && v.position == this.position;
-    }
+    public boolean equals(Object obj) { return obj instanceof Waypoint v && v.position == this.position; }
 
+    @Override
+    public String toString() {
+        return "uuid:" + this.uuid +
+                ",name:" + this.name.getString() +
+                ",creator:" + this.creator.getName() +
+                ",description:" + this.description +
+                ",position:" + this.position.toShortString() +
+                ",dimension:" + this.dimension.toShortTranslationKey();
+    }
     public List<GameProfile> getAuthors() {
         return authors;
+    }
+
+    public UUID getUuid() {
+        return uuid;
     }
 
     public Text getName() {

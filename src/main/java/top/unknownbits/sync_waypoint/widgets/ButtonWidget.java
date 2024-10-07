@@ -1,8 +1,10 @@
-package net.unknownbits.sync_waypoint.widgets;
+package top.unknownbits.sync_waypoint.widgets;
 
 import com.google.common.collect.Lists;
 import net.minecraft.text.*;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class ButtonWidget extends MutableText {
     public ButtonWidget(TextContent content, @Nullable Style style) {
@@ -10,7 +12,7 @@ public class ButtonWidget extends MutableText {
     }
 
     public static ButtonWidget literal(String string, @Nullable Style style) {
-        return new ButtonWidget(new LiteralTextContent(string), style);
+        return new ButtonWidget(Text.literal(string).getContent(), style);
     }
 
     public static ButtonWidget literal(String string, @Nullable TextColor color, @Nullable ClickEvent clickEvent, @Nullable HoverEvent hoverEvent) {

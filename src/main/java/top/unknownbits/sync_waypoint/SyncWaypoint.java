@@ -1,4 +1,4 @@
-package net.unknownbits.sync_waypoint;
+package top.unknownbits.sync_waypoint;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.api.ModInitializer;
@@ -10,10 +10,10 @@ import net.minecraft.network.message.SignedMessage;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.unknownbits.sync_waypoint.commands.WaypointsCommand;
-import net.unknownbits.sync_waypoint.events.ShareMessageEvents;
+import top.unknownbits.sync_waypoint.commands.Waypoints;
+import top.unknownbits.sync_waypoint.events.ShareMessageEvents;
 
-public class Sync_Waypoint implements ModInitializer {
+public class SyncWaypoint implements ModInitializer {
 
 
     public static void EventsRegister(SignedMessage message, ServerPlayerEntity sender, MessageType.Parameters params) {
@@ -21,12 +21,12 @@ public class Sync_Waypoint implements ModInitializer {
     }
 
     public static void CommandsRegister(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess registryAccess, CommandManager.RegistrationEnvironment environment) {
-        WaypointsCommand.register(dispatcher);
+        Waypoints.register(dispatcher);
     }
 
     @Override
     public void onInitialize() {
-        CommandRegistrationCallback.EVENT.register(Sync_Waypoint::CommandsRegister);
-        ServerMessageEvents.CHAT_MESSAGE.register(Sync_Waypoint::EventsRegister);
+        CommandRegistrationCallback.EVENT.register(SyncWaypoint::CommandsRegister);
+        ServerMessageEvents.CHAT_MESSAGE.register(SyncWaypoint::EventsRegister);
     }
 }

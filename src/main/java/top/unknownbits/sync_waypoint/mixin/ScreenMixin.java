@@ -1,8 +1,8 @@
-package net.unknownbits.sync_waypoint.mixin;
+package top.unknownbits.sync_waypoint.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.unknownbits.sync_waypoint.client.Config;
+import top.unknownbits.sync_waypoint.client.Config;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
